@@ -1,0 +1,127 @@
+This is pTeXk, Version 3.141592-p3.1.11 (euc) (Web2C 7.5.4) (format=platex 2013.4.21)  21 APR 2013 22:50
+ %&-line parsing enabled.
+**3.1.scm
+(./3.1.scm
+pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2009/09/24> patch level 0)
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ï»
+      ¿(define make-accumulator (lambda(x)
+? 
+Missing character: There is no ^^bf in font cmr10!
+)
+*
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--0
+[]
+ []
+
+
+Overfull \hbox (9.62216pt too wide) in paragraph at lines 1--0
+\JY1/mc/m/n/10 ï»
+ []
+
+
+Overfull \hbox (17.22224pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 (de-
+ []
+
+
+Overfull \hbox (15.55559pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 fine
+ []
+
+
+Overfull \hbox (26.11116pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 make-
+ []
+
+
+Overfull \hbox (53.639pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 accumulator
+ []
+
+
+Overfull \hbox (49.16682pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 (lambda(x)
+ []
+
+
+Overfull \hbox (36.11122pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 (lambda
+ []
+
+
+Overfull \hbox (23.88896pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 (add)
+ []
+
+
+Overfull \hbox (18.94447pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 (set!
+ []
+
+
+Overfull \hbox (5.2778pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 x
+ []
+
+
+Overfull \hbox (11.6667pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 (+
+ []
+
+
+Overfull \hbox (5.2778pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 x
+ []
+
+
+Overfull \hbox (23.88896pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 add))
+ []
+
+
+Overfull \hbox (5.2778pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 x
+ []
+
+
+Overfull \hbox (3.8889pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 )
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 1--0
+\OT1/cmr/m/n/10 )) 
+ []
+
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*\end
+
+*\end
+! TeX capacity exceeded, sorry [input stack size=5000].
+\end #1->\csname end#1
+                      \endcsname \@checkend {#1}\expandafter \endgroup \if@e...
+<*> \end
+        
+If you really absolutely need more capacity,
+you can ask a wizard to enlarge me.
+
+ 
+Here is how much of TeX's memory you used:
+ 5 strings out of 257674
+ 30 string characters out of 1191153
+ 50695 words of memory out of 3000000
+ 3262 multiletter control sequences out of 10000+50000
+ 7511 words of font info for 31 fonts, out of 2000000 for 2000
+ 14 hyphenation exceptions out of 8191
+ 5000i,0n,5000p,49b,14s stack positions out of 5000i,500n,6000p,200000b,40000s
+No pages of output.

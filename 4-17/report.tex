@@ -1,0 +1,43 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\maketitle
+
+\section{Ex. 3.1}
+\subsection{考え方}
+make-accumulatorで返される関数内で、make-acumulatorに与えられた引数に破壊的代入を使うことにより、それを更新していく。\\
+3.1.scmではmake-accumulator関数の引数xに対して、
+\verb\(set! x (+ x add))\とすることでxを更新している。\\
+\subsection{実行例}
+test/3.1.scmより\\
+{\small
+\begin{verbatim}
+Testing 3.1 ...                                                  
+test (A 10), expects 15 ==> ok
+test (A 10), expects 25 ==> ok
+\end{verbatim}
+}
+
+\section{Ex. 3.3}
+\subsection{考え方}
+make-account関数で与えられたパスワードは、口座の操作ごとに入力する仕組みになっている。\\
+3.3.scmでは口座の操作の際にdispatch関数が呼ばれているため、dispatch関数内で口座の操作をする前にパスワードが正しいかどうかを判断し、パスワードが正しければ操作をし、正しくなければ"Incorrect password"を返せばよい。\\
+\subsection{実行例}
+test/3.3.scmより\\
+{\small
+\begin{verbatim}
+Testing 3.3 ...                                                  
+<Account test>-----------------------------------------------------------------
+test ((acc 'secret-password 'withdraw) 30), expects 70 ==> ok
+test ((acc 'secret-password 'diposit) 40), expects 110 ==> ERROR: GOT #<<error> "Unknown request -- MAKE-ACCOUNT diposit">
+test ((acc 'secret-password 'withdraw) 300), expects #<error> ==> ERROR: GOT "Insufficient funds"
+test ((acc 'secret-password 'mes) 10), expects #<error> ==> ok
+<Password test>----------------------------------------------------------------
+test ((acc 'secret-password 'withdraw) 40), expects 60 ==> ok
+test ((acc 'some-other-password 'diposit) 50), expects "Incorrect password" ==> ok
+\end{verbatim}
+}
+
+\end{document}
