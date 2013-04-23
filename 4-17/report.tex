@@ -3,6 +3,7 @@
 \title{「プログラミング言語」課題}
 \author{1029-24-9540 山崎啓太郎}
 \begin{document}
+\lstset{numbers=left,basicstyle=\small}
 \maketitle
 
 \section{Ex. 3.1}
@@ -11,7 +12,9 @@ make-accumulatorで返される関数内で、make-acumulatorに与えられた�
 3.1.scmではmake-accumulator関数の引数xに対して、
 \verb\(set! x (+ x add))\とすることでxを更新している。\\
 \subsection{実行例}
-test/3.1.scmより\\
+test/3.1.scm\\
+\lstinputlisting{test/3.1.scm}
+結果\\
 {\small
 \begin{verbatim}
 Testing 3.1 ...                                                  
