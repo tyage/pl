@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2013.4.22)  22 APR 2013 01:21
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2013.4.22)  24 APR 2013 00:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -83,57 +83,125 @@ LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 \c@lstlisting=\count97
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 6.
+(Font)              <14.4> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 6.
+(Font)              <7> on input line 7.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 8.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 8.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 9.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 9.
- [1
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 10.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 10.
+ (./test/3.1.scm
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 9.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
+) [1
 
 ]
-Overfull \hbox (64.14633pt too wide) in paragraph at lines 41--41
+(./test/3.3.scm
+Overfull \hbox (110.1875pt too wide) in paragraph at lines 12--13
+[][][][][][][]\JY1/mc/m/n/10.95 引出[][][][][][][][][][][][][][][][][][][][][] 
+
+ []
+
+
+Overfull \hbox (78.78638pt too wide) in paragraph at lines 13--15
+[][][][][][][]\JY1/mc/m/n/10.95 存在しない操作をする[][][][][][][][][][][][][][
+][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.11243pt too wide) in paragraph at lines 17--18
+[][][][][][][]\JY1/mc/m/n/10.95 正しいパスワ ードで引出[][][][][][][][][][][][]
+[][][][][] 
+ []
+
+)
+Overfull \hbox (215.76825pt too wide) in paragraph at lines 18--32
+[][][][][][][]\JY1/mc/m/n/10.95 間違 っ たパスワ ードで振込[][][][][][][][][][]
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (64.14633pt too wide) in paragraph at lines 45--45
 []\OT1/cmtt/m/n/10.95 <Account test>-------------------------------------------
 ----------------------[] 
  []
 
 
-Overfull \hbox (311.3399pt too wide) in paragraph at lines 41--41
-[]\OT1/cmtt/m/n/10.95 test ((acc 'secret-password 'diposit) 40), expects 110 ==
-> ERROR: GOT #<<error> "Unknown request -- MAKE-ACCOUNT diposit">[] 
- []
-
-
-Overfull \hbox (167.62271pt too wide) in paragraph at lines 41--41
-[]\OT1/cmtt/m/n/10.95 test ((acc 'secret-password 'withdraw) 300), expects #<er
-ror> ==> ERROR: GOT "Insufficient funds"[] 
- []
-
-
-Overfull \hbox (64.14633pt too wide) in paragraph at lines 41--41
+Overfull \hbox (64.14633pt too wide) in paragraph at lines 45--45
 []\OT1/cmtt/m/n/10.95 <Password test>------------------------------------------
 ----------------------[] 
  []
 
-
-Overfull \hbox (81.3924pt too wide) in paragraph at lines 41--41
-[]\OT1/cmtt/m/n/10.95 test ((acc 'some-other-password 'diposit) 50), expects "I
-ncorrect password" ==> ok[] 
+[2] (./test/3.7.scm
+Overfull \hbox (17.34424pt too wide) in paragraph at lines 9--10
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[2] (./report.aux) ) 
-Here is how much of TeX's memory you used:
- 1444 strings out of 494051
- 20475 string characters out of 6155710
- 74420 words of memory out of 5000000
- 4936 multiletter control sequences out of 15000+600000
- 13363 words of font info for 54 fonts, out of 8000000 for 9000
- 745 hyphenation exceptions out of 8191
- 26i,6n,32p,226b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.dvi (2 pages, 2972 bytes).
+Overfull \hbox (89.85004pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][]\JY1/mc/m/n/10.95 を使 っ て引出[][][][][][][][][][][][][][
+][][][][][][] 
+ []
+
+
+Overfull \hbox (81.03839pt too wide) in paragraph at lines 11--12
+[][][][][][][]\JY1/mc/m/n/10.95 さらに[][][]を使 っ て引出[][][][][][][][][][][
+][][][][][][][] 
+ []
+
+
+Overfull \hbox (74.46832pt too wide) in paragraph at lines 12--13
+[][][][][][][]\JY1/mc/m/n/10.95 さらに[][][]を使 っ て振込[][][][][][][][][][][
+][][][][][][][] 
+ []
+
+[3]
+Overfull \hbox (292.49475pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][]\JY1/mc/m/n/10.95 のパスワ ードを間違える[][][][][][][][][]
+[][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (279.35461pt too wide) in paragraph at lines 14--58
+[][][][][][][][][][]\JY1/mc/m/n/10.95 のパスワ ードを間違える[][][][][][][][][]
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.48741pt too wide) in paragraph at lines 68--68
+[]\OT1/cmtt/m/n/10.95 test peter-acc \JY1/mc/m/n/10.95 のパスワ ードを間違える\
+OT1/cmtt/m/n/10.95 , expects "Incorrect password" ==> ok[] 
+ []
+
+
+Overfull \hbox (9.73872pt too wide) in paragraph at lines 68--68
+[]\OT1/cmtt/m/n/10.95 test paul-acc \JY1/mc/m/n/10.95 のパスワ ードを間違える\O
+T1/cmtt/m/n/10.95 , expects "Incorrect password" ==> ok[] 
+ []
+
+[4] (./report.aux) ) 
+Here is how much of TeX's memory you used:
+ 1490 strings out of 494051
+ 21084 string characters out of 6155710
+ 88420 words of memory out of 5000000
+ 4962 multiletter control sequences out of 15000+600000
+ 15802 words of font info for 62 fonts, out of 8000000 for 9000
+ 745 hyphenation exceptions out of 8191
+ 29i,6n,32p,226b,1515s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on report.dvi (4 pages, 12680 bytes).

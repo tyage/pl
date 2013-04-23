@@ -28,18 +28,43 @@ test (A 10), expects 25 ==> ok
 make-account関数で与えられたパスワードは、口座の操作ごとに入力する仕組みになっている。\\
 3.3.scmでは口座の操作の際にdispatch関数が呼ばれているため、dispatch関数内で口座の操作をする前にパスワードが正しいかどうかを判断し、パスワードが正しければ操作をし、正しくなければ"Incorrect password"を返せばよい。\\
 \subsection{実行例}
-test/3.3.scmより\\
+test/3.3.scm\\
+\lstinputlisting{test/3.3.scm}
+結果\\
 {\small
 \begin{verbatim}
 Testing 3.3 ...                                                  
 <Account test>-----------------------------------------------------------------
-test ((acc 'secret-password 'withdraw) 30), expects 70 ==> ok
-test ((acc 'secret-password 'diposit) 40), expects 110 ==> ERROR: GOT #<<error> "Unknown request -- MAKE-ACCOUNT diposit">
-test ((acc 'secret-password 'withdraw) 300), expects #<error> ==> ERROR: GOT "Insufficient funds"
-test ((acc 'secret-password 'mes) 10), expects #<error> ==> ok
+test 30引出, expects 70 ==> ok
+test 40振込, expects 110 ==> ok
+test 300引出, expects "Insufficient funds" ==> ok
+test 存在しない操作をする, expects #<error> ==> ok
 <Password test>----------------------------------------------------------------
-test ((acc 'secret-password 'withdraw) 40), expects 60 ==> ok
-test ((acc 'some-other-password 'diposit) 50), expects "Incorrect password" ==> ok
+test 正しいパスワードで40引出, expects 60 ==> ok
+test 間違ったパスワードで50振込, expects "Incorrect password" ==> ok
+\end{verbatim}
+}
+
+\section{Ex. 3.7}
+\subsection{考え方}
+make-jointは第一引数にmake-accountで生成された口座（account）、第二引数にそのaccountのパスワード（old-password）、第三引数に新しく作るaccount用のパスワード（old-password）を取る。\\
+まず、make-jointではold-passwordが正しいものか判定しなくてはいけないが、accountにはそのための機能が備わっていないため、make-accountを改良する必要がある。\\
+3.7.scmでは\verb\(account old-password 'check-password)\を評価することで、old-passwordが正しい場合trueが、間違っていた場合falseが帰ってくるようになっている。\\
+old-passwordが正しかった場合、新規accountで操作をするためのlambda式を返す。\\
+そのlambda式はmake-accountで生成された口座と同様に、パスワードと操作のためのメッセージを引数としてとり、与えられたパスワードがnew-passwordと一致していればaccountにメッセージを渡す。\\
+以上のようにすれば、make-jointで必要な機能を満たすことができる。\\
+\subsection{実行例}
+test/3.3.scm\\
+\lstinputlisting{test/3.7.scm}
+結果\\
+{\small
+\begin{verbatim}
+Testing 3.7 ...                                                  
+test peter-accを使って40引出, expects 60 ==> ok
+test さらにpaul-accを使って40引出, expects 20 ==> ok
+test さらにpaul-accを使って30振込, expects 50 ==> ok
+test peter-accのパスワードを間違える, expects "Incorrect password" ==> ok
+test paul-accのパスワードを間違える, expects "Incorrect password" ==> ok
 \end{verbatim}
 }
 
