@@ -1,0 +1,45 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\lstset{numbers=left,basicstyle=\small}
+\maketitle
+
+\section{Ex. 3.33}
+\subsection{考え方}
+aとbの合計値をdに制約し、2をeに制約して、c*eをdに制約することで、c = (a+b)/2となり平均値が取れる
+\subsection{実行例}
+test/3.22.scm\\
+{\small
+\begin{verbatim}
+(use gauche.test)
+(add-load-path ".")
+
+(test-start "3.33")
+
+(load "3.33")
+
+(define a (make-connector))
+(define b (make-connector))
+(define c (make-connector))
+(define d (make-connector))
+(constant 10 a)
+(constant 5 b)
+(averager a b c)
+(averager a d b)
+
+(test* "(averager a b c)" (/ 15 2) (get-value c))
+(test* "(averager a d b)" 0 (get-value d))
+\end{verbatim}
+}
+
+結果\\
+{\small
+\begin{verbatim}
+Testing 3.33 ...                                                 
+test (averager a b c), expects 15/2 ==> ok
+test (averager a d b), expects 0 ==> ok
+\end{verbatim}
+}
+\end{document}

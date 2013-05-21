@@ -1,0 +1,93 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\lstset{numbers=left,basicstyle=\small}
+\maketitle
+
+\section{Ex. 3.22}
+\subsection{考え方}
+\verb\(make-queue)\で作成したqueueにメッセージを渡して、帰ってきた関数を実行することでqueueに要素の追加や削除をしている。
+\subsection{実行例}
+test/3.22.scm\\
+{\small
+\begin{verbatim}
+(use gauche.test)
+(add-load-path ".")
+
+(test-start "3.22")
+
+(load "3.22")
+
+(define q (make-queue))
+(test* "front queue" *test-error* ((q 'front-queue)))
+(test* "aを追加" '(a) ((q 'insert-queue!) 'a))
+(test* "front queue" 'a ((q 'front-queue)))
+(test* "bを追加" '(a b) ((q 'insert-queue!) 'b))
+(test* "queueを削除" '(b) ((q 'delete-queue!)))
+(test* "dを追加" '(b c) ((q 'insert-queue!) 'c))
+(test* "queueを削除" '(c) ((q 'delete-queue!)))
+(test* "queueを削除" '() ((q 'delete-queue!)))
+(test* "queueを削除" *test-error* ((q 'delete-queue!)))
+(test* "存在しない操作をする" *test-error* (q 'some-other-message))
+\end{verbatim}
+}
+
+結果\\
+{\small
+\begin{verbatim}
+Testing 3.22 ...                                                 
+test front queue, expects #<error> ==> ok
+test aを追加, expects (a) ==> ok
+test front queue, expects a ==> ok
+test bを追加, expects (a b) ==> ok
+test queueを削除, expects (b) ==> ok
+test dを追加, expects (b c) ==> ok
+test queueを削除, expects (c) ==> ok
+test queueを削除, expects () ==> ok
+test queueを削除, expects #<error> ==> ok
+test 存在しない操作をする, expects #<error> ==> ok
+\end{verbatim}
+}
+
+\section{Ex. 3.25}
+\subsection{考え方}
+\verb\(make-table)\で作成したtableにメッセージを渡して、帰ってきた関数を実行することでlistをkeyにした値の追加やlookupができる。
+\subsection{実行例}
+test/3.25.scm\\
+{\small
+\begin{verbatim}
+(use gauche.test)
+(add-load-path ".")
+
+(test-start "3.25")
+
+(load "3.25")
+
+(define table (make-table))
+((table 'insert!) '(食べ物 うどん 色) '白)
+((table 'insert!) '(食べ物 うどん のどごし) 'つるつる)
+((table 'insert!) '(食べ物 カニ 色) '赤)
+((table 'insert!) '(食べ物 カニ 足の数) '8本)
+(test* "うどんの色を取得" '白 ((table 'lookup) '(食べ物 うどん 色)))
+(test* "うどんののどごしを取得" 'つるつる ((table 'lookup) '(食べ物 うどん のどごし)))
+(test* "カニの色を取得" '赤 ((table 'lookup) '(食べ物 カニ 色)))
+(test* "カニの足の数を取得" '8本 ((table 'lookup) '(食べ物 カニ 足の数)))
+(test* "カニののどごしを取得" #f ((table 'lookup) '(食べ物 カニ のどごし)))
+\end{verbatim}
+}
+
+結果\\
+{\small
+\begin{verbatim}
+Testing 3.25 ...                                                 
+test うどんの色を取得, expects 白 ==> ok
+test うどんののどごしを取得, expects つるつる ==> ok
+test カニの色を取得, expects 赤 ==> ok
+test カニの足の数を取得, expects |8本| ==> ok
+test カニののどごしを取得, expects #f ==> ok
+\end{verbatim}
+}
+
+\end{document}
