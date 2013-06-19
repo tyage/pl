@@ -1,0 +1,139 @@
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2013.4.22)  19 JUN 2013 10:22
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ piedmontese, polish, portuguese, romanian, romansh, russian, sanskrit, serbian
+, serbianc, slovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, u
+ppersorbian, welsh, loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen118
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+\lst@mode=\count89
+\lst@gtempboxa=\box41
+\lst@token=\toks16
+\lst@length=\count90
+\lst@currlwidth=\dimen119
+\lst@column=\count91
+\lst@pos=\count92
+\lst@lostspace=\dimen120
+\lst@width=\dimen121
+\lst@newlines=\count93
+\lst@lineno=\count94
+\lst@maxwidth=\dimen122
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count95
+\lst@skipnumbers=\count96
+\lst@framebox=\box42
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(./report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+\c@lstlisting=\count97
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 7.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 9.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 9.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 10.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 10.
+ [1
+
+] [2]
+Overfull \hbox (41.15158pt too wide) in paragraph at lines 105--105
+[]\OT1/cmtt/m/n/10.95 (test* "(frame-variables frame)" (frame-variables frame) 
+'(key0 key1 key2))[] 
+ []
+
+
+Overfull \hbox (64.14633pt too wide) in paragraph at lines 105--105
+[]\OT1/cmtt/m/n/10.95 (test* "(lookup-variable-value 'key0 env)" (lookup-variab
+le-value 'key0 env) 0)[] 
+ []
+
+
+Overfull \hbox (64.14633pt too wide) in paragraph at lines 105--105
+[]\OT1/cmtt/m/n/10.95 (test* "(lookup-variable-value 'key1 env)" (lookup-variab
+le-value 'key1 env) 1)[] 
+ []
+
+
+Overfull \hbox (64.14633pt too wide) in paragraph at lines 122--122
+[]\OT1/cmtt/m/n/10.95 <frame test>---------------------------------------------
+----------------------[] 
+ []
+
+
+Overfull \hbox (64.14633pt too wide) in paragraph at lines 122--122
+[]\OT1/cmtt/m/n/10.95 <env test>-----------------------------------------------
+----------------------[] 
+ []
+
+[3] [4] (./report.aux) ) 
+Here is how much of TeX's memory you used:
+ 1442 strings out of 494051
+ 20454 string characters out of 6155710
+ 77420 words of memory out of 5000000
+ 4935 multiletter control sequences out of 15000+600000
+ 13194 words of font info for 53 fonts, out of 8000000 for 9000
+ 745 hyphenation exceptions out of 8191
+ 26i,6n,32p,187b,419s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on report.dvi (4 pages, 4512 bytes).
