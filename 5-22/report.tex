@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\lstset{numbers=left,basicstyle=\small}
+\maketitle
+
+\section{Ex. 3.51}
+\subsection{考え方}
+gaucheを使用しているため、stream.scmを\\
+\verb\http://d.hatena.ne.jp/rucifer_hacker/20090127/1233037207から使用した。\\\
+\subsection{実行例}
+(stream-ref 5)\\
+{\small
+\begin{verbatim}
+(add-load-path ".")
+(load "3.51.scm")
+
+(stream-ref 5)
+\end{verbatim}
+}
+結果\\
+{\small
+\begin{verbatim}
+0
+1
+2
+3
+4
+\end{verbatim}
+}
+\\
+(stream-ref 7)\\
+{\small
+\begin{verbatim}
+(add-load-path ".")
+(load "3.51.scm")
+
+(stream-ref 7)
+\end{verbatim}
+}
+結果\\
+{\small
+\begin{verbatim}
+0
+1
+2
+3
+4
+5
+6
+\end{verbatim}
+}
+
+\section{Ex. 3.54}
+\subsection{考え方}
+mul-streamsにfactorialsと(add-streams ones integers)を渡している\\
+\subsection{実行例}
+test/3.54.scm\\
+{\small
+\begin{verbatim}
+(use gauche.test)
+(add-load-path ".")
+
+(test-start "3.54")
+
+(load "3.54")
+
+(test* "(stream-ref factorials 4)" 120 (stream-ref factorials 4))
+(test* "(stream-ref factorials 6)" 5040 (stream-ref factorials 6))
+\end{verbatim}
+}
+結果\\
+{\small
+\begin{verbatim}
+Testing 3.54 ...                                                 
+test (stream-ref factorials 4), expects 120 ==> ok
+test (stream-ref factorials 6), expects 5040 ==> ok
+\end{verbatim}
+}
+
+\section{Ex. 3.58}
+\subsection{考え方}
+radixは基数だと思われる。\\
+(/ num den)の小数点以下の値が次々と表示される。\\
+\subsection{実行例}
+(show-stream (expand 1 7 10) 20)\\
+{\small
+\begin{verbatim}
+(add-load-path ".")
+(load "3.58.scm")
+
+(show-stream (expand 1 7 10) 20)
+\end{verbatim}
+}
+結果\\
+{\small
+\begin{verbatim}
+ 1 4 2 8 5 7 1 4 2 8 5 7 1 4 2 8 5 7 1 4
+\end{verbatim}
+}
+(show-stream (expand 3 8 10) 20)\\
+{\small
+\begin{verbatim}
+(add-load-path ".")
+(load "3.58.scm")
+
+(show-stream (expand 3 8 10) 20)
+\end{verbatim}
+}
+結果\\
+{\small
+\begin{verbatim}
+ 3 7 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+\end{verbatim}
+}
+
+\end{document}
