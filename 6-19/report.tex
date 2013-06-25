@@ -1,0 +1,52 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\lstset{numbers=left,basicstyle=\small}
+\maketitle
+
+\section{Ex. 4.6}
+\subsection{考え方}
+\verb\(let ((<var1> <exp1>) (<var2> <exp2>)) <body>)\と\\
+\verb\((lambda (<var1> <var2>) body) <exp1> <exp2>)\は等価であるので、let構文をlambda式を使った構文に変換する。\\
+\subsection{実行例}
+{\small
+\begin{verbatim}
+;;; M-Eval input:
+(let ((hoge 12)) hoge)
+
+;;; M-Eval value:
+12
+
+;;; M-Eval input:
+(let ((fuga 1) (hoga 2)) hoga)
+
+;;; M-Eval value:
+2
+
+\end{verbatim}
+}
+
+\section{Ex. 4.16}
+\subsection{考え方}
+a.lookup-variable-valueでvalueが*unassigned*であればエラーを返すようにする。\\
+b.内部のdefine文を探し、let構文で置き換えて返す。\\
+	内部のdefineを全て探して、変数名と値を取得し、一つのlet構文で変数名を定義し、*unassigned*で初期化した後に、set!を使用して変数に値を定義する。\\
+c.scan-out-definesは等価なものを返すものではあるが、今回はeval時に渡されるexp内で使用すべきである。\\
+その点を考慮すると、make-procedureはevalのみから呼び出される関数であるが、procedure-bodyはuser-printからも呼び出されているため、make-procedureのほうが適切であると思われる。
+\subsection{実行例}
+{\small
+\begin{verbatim}
+;;; M-Eval input:
+((lambda ()   
+  (define a 1)
+  a))
+
+;;; M-Eval value:
+1
+
+\end{verbatim}
+}
+
+\end{document}

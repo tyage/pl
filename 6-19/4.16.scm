@@ -170,7 +170,9 @@
   (eq? x false))
 
 (define (make-procedure parameters body env)
-  (list 'procedure parameters body env))
+  (list 'procedure parameters 
+		(scan-out-defines body)
+		env))
 (define (compound-procedure? p)
   (tagged-list? p 'procedure))
 (define (procedure-parameters p) (cadr p))
@@ -202,7 +204,9 @@
       (cond ((null? vars)
              (env-loop (enclosing-environment env)))
             ((eq? var (car vars))
-             (car vals))
+							(if (eq? (car vals) "*unassigned*")
+								(error "Unassigned variable " var)
+								(car vals)))
             (else (scan (cdr vars) (cdr vals)))))
     (if (eq? env the-empty-environment)
         (error "Unbound variable" var)
@@ -343,6 +347,32 @@
 			(cons 
 				(make-lambda (map car binds) body)
 				(map cadr binds))))))
+
+;;; b
+(define has-define? (lambda (exp)
+	(if (null? exp)
+		#f
+		(if (definition? (car exp))
+			#t
+			(has-define? (cdr exp))))))
+
+(define scan-out-defines (lambda (body)
+	(define iter (lambda (exp vars sets exps)
+		(if (null? exp)
+			(list (reverse vars) (reverse sets) (reverse exps))
+			(if (definition? (car exp))
+				(iter 
+					(cdr exp) 
+					(cons (list (definition-variable (car exp)) "*unassigned*") vars)
+					(cons (list 'set! 
+						(definition-variable(car exp)) 
+						(definition-value (car exp)))
+					 sets) exps)
+				(iter (cdr exp) vars sets (cons (car exp) exps))))))
+	(if (has-define? body)
+		(let ((scaned (iter body '() '() '())))
+			(list (cons 'let (cons (car scaned) (append (cadr scaned) (caddr scaned))))))
+		body)))
 
 ;;; input
 (driver-loop)
