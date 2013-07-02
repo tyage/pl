@@ -1,0 +1,89 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\lstset{numbers=left,basicstyle=\small}
+\maketitle
+
+\section{Ex. 4.27}
+\subsection{考え方}
+式の値がサンクの時は、それがサンクでないものに達するまで強制を繰り返すため、wを定義した際に、外側のidが実行され、内側のidは実行されない。\\
+そのため、一回目のcountの評価結果は1となる。\\
+wを評価すると内側のidが実行され10が評価値となる。\\
+さきほどのwの評価により、二度目のcountの評価結果は2となる。\\
+\subsection{実行例}
+{\small
+\begin{verbatim}
+;;; L-Eval input:
+count
+;;; L-Eval value:
+1
+
+;;; L-Eval input:
+w
+;;; L-Eval value:
+10
+
+;;; L-Eval input:
+count
+;;; L-Eval value:
+2
+
+\end{verbatim}
+}
+
+\section{Ex. 4.33}
+\subsection{考え方}
+l-eval.scmを編集して、text-of-quotation関数を呼び出す際にenvを引数として渡すようにしたほか、text-of-quotation関数を以下のように変更した。\\
+{\small
+\begin{verbatim}
+(define (text-of-quotation exp env)
+	(if (pair? (cadr exp))
+		(eval (make-quotation (cadr exp)) env)
+		(cadr exp)))
+
+(define (make-quotation body)
+	(if (null? body)
+		'()
+		(list 'cons (list 'quote (car body)) (make-quotation (cdr body)))))
+\end{verbatim}
+}
+これにより、クォートしたリストも遅延リストを生じるようになった。
+\subsection{実行例}
+{\small
+\begin{verbatim}
+;;; L-Eval input:
+(define (cons x y) (lambda (m) (m x y)))
+;;; L-Eval value:
+ok
+
+;;; L-Eval input:
+(define (car z) (z (lambda (p q) p)))
+;;; L-Eval value:
+ok
+
+;;; L-Eval input:
+(define (cdr z) (z (lambda (p q) q)))
+;;; L-Eval value:
+ok
+
+;;; L-Eval input:
+(define (length l) (if (null? l) 0 (+ 1 (length (cdr l)))))
+;;; L-Eval value:
+ok
+
+;;; L-Eval input:
+(length (cons (/ 1 0) (cons 3 '())))
+;;; L-Eval value:
+2
+
+;;; L-Eval input:
+(car (cons 3 (/1 0)))
+;;; L-Eval value:
+3
+
+\end{verbatim}
+}
+
+\end{document}
