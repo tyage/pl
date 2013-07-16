@@ -1,0 +1,43 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\usepackage{url}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\lstset{numbers=left,basicstyle=\small}
+\maketitle
+
+\section{練習問題1}
+\subsection{考え方}
+prod-listではリストから一つずつ数字を取り出し、再帰的に積を求めている。\\
+取り出した数字が0であった場合、ZeroFindErrorと0をthrowし、処理を終了する。\\
+また、throw-catch構文の実装のために以下のページを参考にした。\\
+\url{http://d.hatena.ne.jp/yagiey/20100505/1273059570}\\
+\subsection{実行例}
+{\small
+\begin{verbatim}
+Testing 1 ...                                                    
+test (prod-list '(3 2 1)) == 6, expects 6 ==> ok
+test (prod-list '(3 0 1)) == 0, expects 0 ==> ok
+test (prod-list '(353 22 1000)) == 6, expects 7766000 ==> ok
+\end{verbatim}
+}
+
+\section{練習問題3}
+\subsection{考え方}
+change関数が呼ばれた際、coinsがnullであった際にはFailと\#fをthrowし、処理を終了するコードを追加した。\\
+また、現在のcoinsから最大のものを使用してchange関数を呼んだ際にFailをcatchした場合、現在のcoinsで最大のものはこれ以上使用できないと判断し、そのcoinを減らした状態でchange関数を再び呼ぶようなコードを追加した。\\
+1と同様、throw-catch構文の実装のために以下のページを参考にした。\\
+その際、そのthrow-catch構文の実装に合わせるため、'failをthrowするところをFailをthrowするよう変更した。\\
+\url{http://d.hatena.ne.jp/yagiey/20100505/1273059570}\\
+\subsection{実行例}
+test/4.11.scm\\
+{\small
+\begin{verbatim}
+Testing 3 ...                                                    
+test (change gb-coins 43) == '(20 20 2 1), expects (20 20 2 1) ==> ok
+test (change us-coins 43) == '(25 10 5 1 1 1), expects (25 10 5 1 1 1) ==> ok
+test (change '(5 2) 16) == '(5 5), expects (5 5 2 2 2) ==> ok
+\end{verbatim}
+}
+\end{document}
