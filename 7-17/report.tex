@@ -1,0 +1,104 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\usepackage{url}
+\title{「プログラミング言語」課題}
+\author{1029-24-9540 山崎啓太郎}
+\begin{document}
+\lstset{numbers=left,basicstyle=\small}
+\maketitle
+
+\section{練習問題4}
+\subsection{考え方}
+make-catchcではtagを引数として渡すところを、tagとhandlerのpairを渡すように変更した。\\
+それに伴い、make-catchcの呼び出し部分も変更し、catchc-tagを変更、catchc-handlerを追加した。\\
+catch用の構造を変更したら、throwされたtagとcatchのtagが一致した時に、handlerを適用するように変更する。\\
+元のevaluatorのコードの91行目の(apply-cont stripped-cont val)を、handlerを適用するコードに変更した。\\
+
+\subsection{eval.scmのdiff}
+{\small
+\begin{verbatim}
+$ diff eval.scm eval-orig.scm 
+1,3d0
+< (define true #t)
+< (define false #f)
+< 
+84c81
+< 			(make-catchc (cons val (caadr cont)) (cabodyc-cont cont))))
+---
+> 			(make-catchc val (cabodyc-cont cont))))
+94,99c91
+< 	       ((lambda () 
+< 	       	(define c (applyc-cont (consc-cont (restopsc-cont (throwc-cont cont)))))
+< 	       	(define handler (catchc-handler c))
+< 	       	(my-apply 
+< 	       		(make-procedure (lambda-parameters handler) (lambda-body handler) the-global-environment)
+< 	       		(list val) c) ))
+---
+> 	       (apply-cont stripped-cont val)
+319c311
+< (define (make-catchc tag-handler cont) (list 'catchc tag-handler cont))
+---
+> (define (make-catchc tag cont) (list 'catchc tag cont))
+321,322c313
+< (define (catchc-tag cont) (car (cadr cont)))
+< (define (catchc-handler cont) (cdr (cadr cont)))
+---
+> (define (catchc-tag cont) (cadr cont))
+\end{verbatim}
+}
+
+\subsection{実行例}
+{\small
+\begin{verbatim}
+;;; CPS-Eval input:
+(define (change coins amount)
+	(cond ((zero? amount) '())
+		((null? coins) (throw 'fail 0))
+		(else
+			(let ((c (car coins)))
+				(if (> c amount) (change (cdr coins) amount)
+					(or (catch 'fail
+						(lambda (x) false)
+						(cons c (change coins (- amount c))))
+						(change (cdr coins) amount) ))))))
+
+(define us-coins '(25 10 5 1))
+(define gb-coins '(50 20 10 5 2 1))
+
+;;; CPS-Eval value:
+ok
+
+;;; CPS-Eval input:
+
+;;; CPS-Eval value:
+ok
+
+;;; CPS-Eval input:
+
+;;; CPS-Eval value:
+ok
+
+;;; CPS-Eval input:
+
+(change gb-coins 43)
+
+;;; CPS-Eval value:
+(20 20 2 1)
+
+;;; CPS-Eval input:
+
+(change us-coins 43)
+
+;;; CPS-Eval value:
+(25 10 5 1 1 1)
+
+;;; CPS-Eval input:
+
+(change '(5 2) 16)
+
+;;; CPS-Eval value:
+(5 5 2 2 2)
+\end{verbatim}
+}
+
+\end{document}
